@@ -1,15 +1,20 @@
 FROM quay.io/centos-bootc/centos-bootc:stream10
 
+# Setup EPEL.
+RUN dnf config-manager --set-enabled crb && dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm --assumeyes
+
 # Firewalld.
 RUN dnf install firewalld --assumeyes
 
 # USBGuard.
-RUN dnf install usbguard --assumeyes && \
-    systemctl enable usbguard
+RUN dnf install usbguard --assumeyes
 
 # Disable USB.
 # Snipet credits: VedaOS
 RUN echo 'kargs = ["usbcore.nousb", "usbcore.authorized_default=0"]' >> /usr/lib/bootc/kargs.d/00-usb.toml
+
+# Fail2ban.
+RUN dnf install fail2ban --assumeyes
 
 # Regenerate the initramfs.
 # Credits: Taxifolia

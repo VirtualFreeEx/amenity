@@ -13,9 +13,11 @@ Mostly contains modifications related to hardening the base system.
 > use at your own risk!
 
 ## Changes
-- `firewalld` is now present on the base system.
+- `firewalld` is now present and enabled on the base system.
 - `usbguard` is present and
 (un)configured out of the box to not allow any USB devices.
 - Just in case, USB is unauthorized *and* disabled at boot-time via a
 set of kernel parameters (`usbcore.nousb usbcore.authorized_default = 0`)
+- `fail2ban` is now present on the base system, however there is no
+configuration by default.
 
