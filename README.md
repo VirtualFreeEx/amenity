@@ -1,5 +1,5 @@
 # Amenity
-An image shipping some bullshit that `centos-bootc` maintainers feel like
+An image shipping some bullshit that the upstream image maintainers feel like
 is unimportant out of the box.
 
 Mostly contains modifications related to hardening the base system.
@@ -22,3 +22,4 @@ set of kernel parameters (`usbcore.nousb usbcore.authorized_default = 0`)
 configuration by default.
 - The `lockdown` LSM is enabled in `confidentiality` mode.
 - `dnscrypt-proxy` is now present on the base system.
+- The system now runs under the post-quantum cryptography policy.

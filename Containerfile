@@ -3,6 +3,10 @@ FROM quay.io/centos-bootc/centos-bootc:stream10
 # Setup EPEL.
 RUN dnf config-manager --set-enabled crb && dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm --assumeyes
 
+# Post-quantum cryptography policies.
+RUN dnf install crypto-policies-pq-preview crypto-policies-scripts && \
+    update-crypto-policies --set DEFAULT:TEST-PQ
+
 # Firewalld.
 RUN dnf install firewalld --assumeyes
 

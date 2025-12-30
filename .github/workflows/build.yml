@@ -15,7 +15,7 @@ on:
   workflow_dispatch:
 
 env:
-  IMAGE_DESC: "An image shipping some bullshit that `centos-bootc` maintainers feel like is unimportant out of the box."
+  IMAGE_DESC: "An image shipping some bullshit that the upstream image maintainers feel like is unimportant out of the box."
   IMAGE_KEYWORDS: "bootc,centos"
   IMAGE_LOGO_URL: "https://www.emoji.family/api/emojis/1f417/twemoji/png"
   IMAGE_NAME: "${{ github.event.repository.name }}"
