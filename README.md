@@ -23,3 +23,4 @@ configuration by default.
 - The `lockdown` LSM is enabled in `confidentiality` mode.
 - `dnscrypt-proxy` is now present on the base system.
 - The system now runs under the post-quantum cryptography policy.
+- `zram-generator` is now present on the base system.

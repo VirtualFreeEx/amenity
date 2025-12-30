@@ -1,7 +1,7 @@
 FROM quay.io/centos-bootc/centos-bootc:stream10
 
 # Setup EPEL.
-RUN dnf config-manager --set-enabled crb && dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm --assumeyes
+RUN dnf in epel-release --assumeyes && crb enable
 
 # Post-quantum cryptography policies.
 RUN dnf install crypto-policies-pq-preview crypto-policies-scripts && \
@@ -26,6 +26,11 @@ RUN dnf install fail2ban --assumeyes
 
 # dnscrypt-proxy.
 RUN dnf install dnscrypt-proxy --assumeyes
+
+# zram-generator.
+RUN dnf install zram-generator --assumeyes && \
+    echo -e "[zram0]\n\
+zram-size = min(ram, 8192)" > /usr/lib/systemd/zram-generator.conf
 
 # Regenerate the initramfs.
 # Credits: Taxifolia
