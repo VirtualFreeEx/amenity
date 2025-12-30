@@ -20,4 +20,5 @@ Mostly contains modifications related to hardening the base system.
 set of kernel parameters (`usbcore.nousb usbcore.authorized_default = 0`)
 - `fail2ban` is now present on the base system, however there is no
 configuration by default.
+- The `lockdown` LSM is enabled in `confidentiality` mode.
 

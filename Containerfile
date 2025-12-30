@@ -13,6 +13,10 @@ RUN dnf install usbguard --assumeyes
 # Snipet credits: VedaOS
 RUN echo 'kargs = ["usbcore.nousb", "usbcore.authorized_default=0"]' >> /usr/lib/bootc/kargs.d/00-usb.toml
 
+# Lockdown.
+# Snipet credits: VedaOS
+RUN echo 'kargs = ["lockdown=confidentiality"]' >> /usr/lib/bootc/kargs.d/00-lockdown.toml
+
 # Fail2ban.
 RUN dnf install fail2ban --assumeyes
 
