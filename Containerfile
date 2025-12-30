@@ -20,6 +20,9 @@ RUN echo 'kargs = ["lockdown=confidentiality"]' >> /usr/lib/bootc/kargs.d/00-loc
 # Fail2ban.
 RUN dnf install fail2ban --assumeyes
 
+# dnscrypt-proxy.
+RUN dnf install dnscrypt-proxy --assumeyes
+
 # Regenerate the initramfs.
 # Credits: Taxifolia
 RUN KERNEL_VERSION="$(find "/usr/lib/modules" -maxdepth 1 -type d ! -path "/usr/lib/modules" -exec basename '{}' ';' | sort | tail -n 1)" && \ 
