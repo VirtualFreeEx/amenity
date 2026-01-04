@@ -1,9 +1,0 @@
-Amenity
-Copyright 2020 The Apache Software Foundation
-
-This product includes snippets licensed under the Apache License 2.0
-
-The shell snippet credited to VedaOS in the Containerfile is partially copied
-from https://github.com/Lumaeris/vedaos, software licensed under the
-Apache License 2.0 with modifications to the contents of the array, which was
-initially created by Lumaeris. (https://github.com/Lumaeris)
