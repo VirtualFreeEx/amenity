@@ -12,6 +12,15 @@ Mostly contains modifications related to hardening the base system.
 > Nobody, however, prohibits you from doing so. Just remember this:
 > use at your own risk!
 
+## Credits
+
+There are snippets and bits of structure used from the following projects:
+- [VedaOS](https://github.com/Lumaeris/vedaos) by Jill.
+- [Taxifolia](https://github.com/tulilirockz/taxifolia) by Alice.
+
+I want to credit Taxifolia especially, as the base project structure,
+as well as CI configuration are taken directly from there.
+
 ## Changes
 - `firewalld` is now present and enabled on the base system.
 - `usbguard` is present and
