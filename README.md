@@ -1,4 +1,5 @@
 # Amenity
+
 An image shipping some bullshit that the upstream image maintainers feel like
 is unimportant out of the box.
 
@@ -23,6 +24,7 @@ I want to credit Taxifolia especially, as the base project structure,
 as well as CI configuration are taken directly from there.
 
 ## Changes
+
 - `firewalld` is now present and enabled on the base system.
 - `usbguard` is present and
 (un)configured out of the box to not allow any USB devices.
