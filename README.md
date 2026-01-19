@@ -33,3 +33,4 @@ configuration by default.
 - `dnscrypt-proxy` is now present on the base system.
 - The system now runs under the post-quantum cryptography policy.
 - `zram-generator` is now present on the base system.
+- `rhc` and `subscription-manager` are now uninstalled.

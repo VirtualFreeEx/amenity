@@ -5,6 +5,9 @@ COPY system_files /
 # Main image.
 FROM quay.io/centos-bootc/centos-bootc:stream10
 
+# Remove `rhc` and `subscription-manager`.
+RUN dnf rm rhc subscription-manager
+
 # Setup EPEL.
 RUN dnf in epel-release --assumeyes && crb enable
 
