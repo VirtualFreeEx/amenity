@@ -15,8 +15,9 @@ Mostly contains modifications related to hardening the base system.
 ## Credits
 
 There are snippets and bits of structure used from the following projects:
-- [VedaOS](https://github.com/Lumaeris/vedaos) by Jill.
-- [Taxifolia](https://github.com/tulilirockz/taxifolia) by Alice.
+- [VedaOS](https://github.com/Lumaeris/vedaos) by Jill; and
+- [Taxifolia](https://github.com/tulilirockz/taxifolia), and
+- [Carinata](https://github.com/tulilirockz/carinata) by Alice.
 
 I want to credit Taxifolia especially, as the base project structure,
 as well as CI configuration are taken directly from there.
@@ -34,3 +35,4 @@ configuration by default.
 - The system now runs under the post-quantum cryptography policy.
 - `zram-generator` is now present on the base system.
 - `rhc` and `subscription-manager` are now uninstalled.
+- The system checks for image signatures.

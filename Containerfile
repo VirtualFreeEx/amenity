@@ -1,18 +1,19 @@
 # Set up files that will be stored in the image's rootfs.
 FROM scratch AS files
 COPY system_files /
+COPY cosign.pub /usr/lib/pki/containers/amenity.pub
 
 # Main image.
 FROM quay.io/centos-bootc/centos-bootc:stream10
 
 # Remove `rhc` and `subscription-manager`.
-RUN dnf rm rhc subscription-manager
+RUN dnf remove rhc subscription-manager --assumeyes
 
 # Setup EPEL.
-RUN dnf in epel-release --assumeyes && crb enable
+RUN dnf install epel-release --assumeyes && crb enable
 
 # Post-quantum cryptography policies.
-RUN dnf install crypto-policies-pq-preview crypto-policies-scripts && \
+RUN dnf install crypto-policies-pq-preview crypto-policies-scripts --assumeyes && \
     update-crypto-policies --set DEFAULT:TEST-PQ
 
 # Firewalld.
