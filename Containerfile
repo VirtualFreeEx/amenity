@@ -34,7 +34,7 @@ zram-size = min(ram, 8192)" > /usr/lib/systemd/zram-generator.conf
 
 # Regenerate the initramfs.
 # Credits: Taxifolia
-RUN KERNEL_VERSION="$(find "/usr/lib/modules" -maxdepth 1 -type d ! -path "/usr/lib/modules" -exec basename '{}' ';' | sort | tail -n 1)" && \ 
+RUN KERNEL_VERSION="$(find "/usr/lib/modules" -maxdepth 1 -type d ! -path "/usr/lib/modules" -exec basename '{}' ';' | sort | tail --lines 1)" && \ 
     export DRACUT_NO_XATTR=1 && \
     dracut --no-hostonly --kver "$KERNEL_VERSION" --reproducible --zstd --verbose --add ostree --force "/usr/lib/modules/$KERNEL_VERSION/initramfs.img" && \
     chmod 0600 "/usr/lib/modules/${KERNEL_VERSION}/initramfs.img"
