@@ -1,0 +1,1 @@
+kargs = ["usbcore.nousb", "usbcore.authorized_default=0"]
