@@ -16,12 +16,14 @@ Mostly contains modifications related to hardening the base system.
 ## Credits
 
 There are snippets and bits of structure used from the following projects:
-- [VedaOS](https://github.com/Lumaeris/vedaos) by Jill; and
 - [Taxifolia](https://github.com/tulilirockz/taxifolia), and
-- [Carinata](https://github.com/tulilirockz/carinata) by Alice.
+- [Carinata](https://github.com/tulilirockz/carinata) by Alice;
+- [VedaOS](https://github.com/Lumaeris/vedaos) by Jill.
 
 I want to credit Taxifolia especially, as the base project structure,
 as well as CI configuration are taken directly from there.
+
+See the [credits](./CREDITS.md) file for more information.
 
 ## Changes
 
