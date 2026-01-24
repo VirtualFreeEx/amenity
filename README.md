@@ -40,3 +40,7 @@ configuration by default.
 - `zram-generator` is now present on the base system.
 - `rhc` and `subscription-manager` are now uninstalled.
 - The system checks for image signatures.
+- `umask` is now set to `077` by default.
+- No shell history file is set by default.
+- Root login is now disabled.
+- Both the key AND the password are necessary to SSH into the system.
