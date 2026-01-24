@@ -44,3 +44,8 @@ configuration by default.
 - No shell history file is set by default.
 - Root login is now disabled.
 - Both the key AND the password are necessary to SSH into the system.
+- Kernel is hardened via the command line parameters and some `sysctl`s.
+
+    I am unable to provide the sources for all options, however I tried not to
+    enable configurations that are worsening the usability a lot.
+

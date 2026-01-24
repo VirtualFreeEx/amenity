@@ -1,0 +1,1 @@
+kargs = ["ia32_emulation=false", "vsyscall=none", "vdso32=0"]

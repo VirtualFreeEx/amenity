@@ -1,0 +1,1 @@
+kargs = ["efi=disable_early_pci_dma", "iommu=force", "amd_iommu=force_isolation", "intel_iommu=on", "iommu.passthrough=0", "iommu.strict=1"]
