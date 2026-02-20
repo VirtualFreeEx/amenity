@@ -1,20 +1,19 @@
+# x86_64-v2 support.
+ARG BASE_IMAGE_TAG="latest"
+
 # Set up files that will be stored in the image's rootfs.
 FROM scratch AS files
 COPY system_files /
 COPY cosign.pub /usr/lib/pki/containers/amenity.pub
 
 # Main image.
-FROM quay.io/centos-bootc/centos-bootc:stream10
+FROM quay.io/almalinuxorg/almalinux-bootc:${BASE_IMAGE_TAG}
 
 # Remove `rhc` and `subscription-manager`.
 RUN dnf remove rhc subscription-manager --assumeyes
 
 # Setup EPEL.
 RUN dnf install epel-release --assumeyes && crb enable
-
-# Post-quantum cryptography policies.
-RUN dnf install crypto-policies-pq-preview crypto-policies-scripts --assumeyes && \
-    update-crypto-policies --set DEFAULT:TEST-PQ
 
 # Firewalld.
 RUN dnf install firewalld --assumeyes
