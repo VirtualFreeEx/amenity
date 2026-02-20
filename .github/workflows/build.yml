@@ -16,7 +16,7 @@ on:
 
 env:
   IMAGE_DESC: "An image shipping some bullshit that the upstream image maintainers feel like is unimportant out of the box."
-  IMAGE_KEYWORDS: "bootc,centos"
+  IMAGE_KEYWORDS: "bootc,alma"
   IMAGE_LOGO_URL: "https://www.emoji.family/api/emojis/1f417/twemoji/png"
   IMAGE_NAME: "${{ github.event.repository.name }}"
   IMAGE_REGISTRY: "ghcr.io/${{ github.repository_owner }}"
@@ -28,6 +28,14 @@ concurrency:
 
 jobs:
   build_push:
+    strategy:
+      matrix:
+        image: 
+          - base_tag: "latest"
+            built_tag_modifier: ""
+          - base_tag: "10.1-20260219-amd64_v2"
+            built_tag_modifier: "_v2"
+
     name: Build and push image
     runs-on: ubuntu-24.04
 
@@ -58,9 +66,9 @@ jobs:
         id: metadata
         with:
           tags: |
-            type=raw,value=${{ env.DEFAULT_TAG }}
-            type=raw,value=${{ env.DEFAULT_TAG }}.{{date 'YYYYMMDD'}}
-            type=raw,value={{date 'YYYYMMDD'}}
+            type=raw,value=${{ env.DEFAULT_TAG }}${{ matrix.image.built_tag_modifier }}
+            type=raw,value=${{ env.DEFAULT_TAG }}${{ matrix.image.built_tag_modifier }}.{{date 'YYYYMMDD'}}
+            type=raw,value=${{ matrix.image.built_tag_modifier }}{{date 'YYYYMMDD'}}
             type=sha,enable=${{ github.event_name == 'pull_request' }}
             type=ref,event=pr
           labels: |
@@ -89,6 +97,8 @@ jobs:
           image: ${{ env.IMAGE_NAME }}
           tags: ${{ steps.metadata.outputs.tags }}
           labels: ${{ steps.metadata.outputs.labels }}
+          build-args: |
+            BASE_IMAGE_TAG=${{ matrix.image.base_tag }}
           oci: false
 
       - name: Login to GitHub Container Registry
