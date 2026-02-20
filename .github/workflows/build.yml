@@ -31,7 +31,7 @@ jobs:
     strategy:
       matrix:
         image: 
-          - base_tag: "latest"
+          - base_tag: "10.1"
             built_tag_modifier: ""
           - base_tag: "10.1-20260219-amd64_v2"
             built_tag_modifier: "_v2"
