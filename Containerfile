@@ -24,8 +24,8 @@ RUN dnf install usbguard --assumeyes
 # Fail2ban.
 RUN dnf install fail2ban --assumeyes
 
-# dnscrypt-proxy.
-RUN dnf install dnscrypt-proxy --assumeyes
+# systemd-resolved.
+RUN dnf install systemd-resolved --assumeyes
 
 # zram-generator.
 RUN dnf install zram-generator --assumeyes

@@ -35,7 +35,10 @@ set of kernel parameters (`usbcore.nousb usbcore.authorized_default = 0`)
 - `fail2ban` is now present on the base system, however there is no
 configuration by default.
 - The `lockdown` LSM is enabled in `confidentiality` mode.
-- `dnscrypt-proxy` is now present on the base system.
+- ~~`dnscrypt-proxy` is now present on the base system.~~
+  The resolver is temporarily switched to `resolved`. This is a bug, and
+  unfortunately not one that can easily be resolved (EPEL currently does not
+  provide `dnscrypt-proxy`.)
 - The system now runs under the post-quantum cryptography policy.
 - `zram-generator` is now present on the base system.
 - `rhc` and `subscription-manager` are now uninstalled.
