@@ -52,3 +52,6 @@ configuration by default.
     I am unable to provide the sources for all options, however I tried not to
     enable configurations that are worsening the usability a lot.
 
+- A build for x86_64-v2 is available under the tag `latest_v2`.
+- `podman-compose` is now present.
+- Docker is now present.

@@ -30,6 +30,14 @@ RUN dnf install systemd-resolved --assumeyes
 # zram-generator.
 RUN dnf install zram-generator --assumeyes
 
+# Podman compose.
+RUN dnf install podman-compose --assumeyes
+
+# Docker.
+RUN dnf config-manager \
+    --add-repo=https://download.docker.com/linux/rhel/docker-ce.repo && \
+    dnf install docker-ce --assumeyes
+
 # Restore files that are supposed to be here.
 RUN --mount=type=bind,from=files,source=/,dst=/files cp /files/* / -avfr
 
