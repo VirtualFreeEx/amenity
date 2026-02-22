@@ -21,8 +21,9 @@ RUN dnf install firewalld --assumeyes
 # USBGuard.
 RUN dnf install usbguard --assumeyes
 
-# Fail2ban.
-RUN dnf install fail2ban --assumeyes
+# Install fail2ban, fix configuration.
+RUN dnf install fail2ban-all --assumeyes && \
+    sed 's/^dbfile.*/dbfile = :memory:/' -i /etc/fail2ban/fail2ban.conf
 
 # systemd-resolved.
 RUN dnf install systemd-resolved --assumeyes
