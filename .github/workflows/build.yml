@@ -33,7 +33,7 @@ jobs:
         image: 
           - base_tag: "10.1"
             built_tag_modifier: ""
-          - base_tag: "10.1-20260219-amd64_v2"
+          - base_tag: "10.1-20260307-amd64_v2"
             built_tag_modifier: "_v2"
 
     name: Build and push image
