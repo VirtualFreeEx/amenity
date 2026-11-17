@@ -50,4 +50,4 @@ RUN KERNEL_VERSION="$(find "/usr/lib/modules" -maxdepth 1 -type d ! -path "/usr/
     chmod 0600 "/usr/lib/modules/${KERNEL_VERSION}/initramfs.img"
 
 # Finalise.
-RUN rm -rf /var/* && bootc container lint --fatal-warnings
+RUN rm -rf /var/* /run/* && bootc container lint --fatal-warnings
